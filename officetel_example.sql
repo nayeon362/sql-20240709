@@ -77,7 +77,7 @@ SELECT
     writer_id,
     write_date,
     view_count,
-    contents,
+    contents,auto_table
     reply
 FROM board
 WHERE receipt_number = 3;    
