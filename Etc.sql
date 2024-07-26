@@ -26,7 +26,22 @@ FROM sale;
 SELECT date, IF(amount > 100000, '고맥', '소액')
 FROM sale;
 
--- IFNULL 함수 : 첫번째 매개변수의 값이 NULL인지에 따라 결과를 반환하는 함수
+-- IFNULL 함수 : 첫번째 매개변수의 값이email_auth NULL인지에 따라 결과를 반환하는 함수
 -- IFNULL (값, 값이 NULL일때 반환할 결과)
 SELECT 사번, 사원이름, IFNULL(부서명, '없음')
 FROM employee_view;
+
+-- 문자열 함수 : 문자열 조작을 도와주는 함수들
+
+-- LENGTH(문자열) : 문자열의 길이를 반환
+SELECT LENGTH(name) / 3 from employee;
+
+-- CONCAT (문자열, ...) : 매개변수로 전달받은 문자열들을 결합
+-- 매개변수 중 하나라도 NULL이면 NULL을 반환
+SELECT CONCAT(사원명, 부서명) FROM employee_view;
+
+-- LEFT(), RIGHT() : 문자열을 왼쪽, 오른쪽에서부터 추출
+SELECT LEFT(사원이름, 2), RIGHT(사원이름, 2) FROM employee_view;
+
+-- ERPLACE() : 특정 문자열을 지정한 문자열로 변경하는 함수
+SELECT REPLACE(사원이름, '길동', '순자') FROM employee
